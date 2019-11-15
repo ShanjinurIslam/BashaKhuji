@@ -118,7 +118,7 @@ class SignInState extends State<SignUp> {
           _isLoading = false;
         });
 
-        if (userId.length > 0 && userId != null && _isLoginForm) {
+        if (userId.length > 0 && userId != null && !_isLoginForm) {
           //widget.loginCallback();
           UserDetails userDetails =
               new UserDetails(auth: widget.auth, userID: userId);
