@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "364152902848",
+    "firebase_url": "https://bashakhujiapp.firebaseio.com",
+    "project_id": "bashakhujiapp",
+    "storage_bucket": "bashakhujiapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:364152902848:android:b14f16073bb3ee35718925",
+        "android_client_info": {
+          "package_name": "com.example.bashakhuji"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "364152902848-jbdnljvh5vtbomnj76cj5ho35hm91u1g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD321nSxDgssK_XCyRHOnlgUfhH1txIS4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "364152902848-jbdnljvh5vtbomnj76cj5ho35hm91u1g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
