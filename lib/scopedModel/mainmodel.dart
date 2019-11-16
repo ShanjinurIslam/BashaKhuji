@@ -28,7 +28,8 @@ class MainModel extends Model {
         sublet.add(ads[i]);
       }
     }
-    isAdLoaded = true;
+
+    //isAdLoaded = true;
     notifyListeners();
   }
 
