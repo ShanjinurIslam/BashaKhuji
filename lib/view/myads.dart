@@ -82,7 +82,7 @@ class MyAdState extends State<MyAds> {
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
                       child: model.myAds.length > 0
-                          ? (model.myAds)
+                          ? listOfAds(model.myAds)
                           : Center(
                               child: Text('No Adds posted by you'),
                             ),

@@ -7,22 +7,47 @@ class Details extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text('Rent Details'),
-          Text(ad.houseName),
-          Text(ad.houseFloor),
-          Text(ad.flatNumber),
-          Text(ad.numberOfBeds.toString()),
-          Text(ad.numberOfToilets.toString()),
-          Text(ad.address),
-          Text(ad.phoneNumber),
+          Text(
+            'Rent Details',
+            style: TextStyle(color: Colors.white, fontSize: 15),
+          ),
+          Text(
+            'House Name:\t' + ad.houseName,
+            style: TextStyle(color: Colors.white, fontSize: 15),
+          ),
+          Text(
+            'House Floor:\t' + ad.houseFloor,
+            style: TextStyle(color: Colors.white, fontSize: 15),
+          ),
+          Text(
+            'Flat Number:\t' + ad.flatNumber,
+            style: TextStyle(color: Colors.white, fontSize: 15),
+          ),
+          Text(
+            'Number of Beds:\t' + ad.numberOfBeds.toString(),
+            style: TextStyle(color: Colors.white, fontSize: 15),
+          ),
+          Text(
+            'Number of Toilets:\t' + ad.numberOfToilets.toString(),
+            style: TextStyle(color: Colors.white, fontSize: 15),
+          ),
+          Text(
+            'Address:\t' + ad.address,
+            style: TextStyle(color: Colors.white, fontSize: 15),
+          ),
+          Text(
+            'Phone Number:\t' + ad.phoneNumber,
+            style: TextStyle(color: Colors.white, fontSize: 15),
+          ),
           RaisedButton(
             child: Text(
               'Back',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.white, fontSize: 20),
             ),
             elevation: 2.0,
             shape: new RoundedRectangleBorder(
@@ -33,7 +58,7 @@ class Details extends StatelessWidget {
             },
           )
         ],
-      ),
+      )),
     );
   }
 }
