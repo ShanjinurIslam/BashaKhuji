@@ -54,7 +54,9 @@ class AdRest {
             numberOfBeds: numberOfBeds,
             numberOfToilets: numberOfToilets,
             phoneNumber: phoneNumber);
-        ads.add(ad);
+        if (!ads.contains(ad)) {
+          ads.add(ad);
+        }
       });
     });
     return ads;

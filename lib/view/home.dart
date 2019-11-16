@@ -39,7 +39,9 @@ class HomeState extends State<Home> {
       tabBuilder: (BuildContext context, int index) {
         return CupertinoTabView(builder: (BuildContext context) {
           if (index == 0) {
-            return AllAds();
+            return AllAds(
+              auth: auth,
+            );
           }
           if (index == 1) {
             return MyAds(userID);

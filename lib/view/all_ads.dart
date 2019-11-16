@@ -1,6 +1,7 @@
 import 'package:bashakhuji/components/rent_tile.dart';
 import 'package:bashakhuji/model/ad_model.dart';
 import 'package:bashakhuji/scopedModel/mainmodel.dart';
+import 'package:bashakhuji/services/authentication.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -8,6 +9,8 @@ import 'package:scoped_model/scoped_model.dart';
 class AllAds extends StatefulWidget {
   bool isCalled = false;
   int count = 0;
+  final BaseAuth auth;
+  AllAds({this.auth});
   @override
   State<StatefulWidget> createState() {
     return AllAdState();
@@ -33,9 +36,11 @@ class AllAdState extends State<AllAds> {
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<MainModel>(builder: (context, child, model) {
-      if (!widget.isCalled && !model.isAdLoaded) {
-        model.generateAds();
+      if (!model.isAdLoaded && !widget.isCalled) {
+        print('I am in build');
         widget.isCalled = true;
+        model.generateAds();
+        print(widget.count);
       }
 
       Map<int, Widget> map = new Map();

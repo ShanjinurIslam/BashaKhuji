@@ -20,15 +20,21 @@ class MainModel extends Model {
     bachelor.clear();
     sublet.clear();
     ads = await controller.fetchAds();
-    for (int i = 0; i < ads.length; i++) {
+    for (int i = 0; i < ads.length/2; i++) {
       if (ads[i].catagory == 'family') {
-        family.add(ads[i]);
+        if (!family.contains(ads[i])) {
+          family.add(ads[i]);
+        }
       }
       if (ads[i].catagory == 'bachelor') {
-        bachelor.add(ads[i]);
+        if (!bachelor.contains(ads[i])) {
+          bachelor.add(ads[i]);
+        }
       }
       if (ads[i].catagory == 'sublet') {
-        sublet.add(ads[i]);
+        if (!sublet.contains(ads[i])) {
+          sublet.add(ads[i]);
+        }
       }
     }
     isAdLoaded = true;

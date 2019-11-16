@@ -8,8 +8,8 @@ class Details extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Text('Rent Details'),
           Text(ad.houseName),
@@ -20,7 +20,14 @@ class Details extends StatelessWidget {
           Text(ad.address),
           Text(ad.phoneNumber),
           RaisedButton(
-            child: Text('Back'),
+            child: Text(
+              'Back',
+              style: TextStyle(color: Colors.white),
+            ),
+            elevation: 2.0,
+            shape: new RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(10.0)),
+            color: Colors.blue,
             onPressed: () {
               Navigator.pop(context);
             },

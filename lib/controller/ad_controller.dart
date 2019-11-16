@@ -5,6 +5,7 @@ class AdController {
   AdRest rest = new AdRest();
   Future<List<Ad>> fetchAds() async {
     List<Ad> ads = await rest.getData();
+    print(ads.length);
     return ads;
   }
 

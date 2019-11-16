@@ -41,26 +41,39 @@ class MyAdState extends State<MyAds> {
               body: Stack(
               children: <Widget>[
                 Positioned(
-                  top: 40,
+                  top: 60,
                   left: 20,
-                  child: Text('My Ads'),
+                  child: Text(
+                    'My Ads',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 35),
+                  ),
                 ),
                 Positioned(
-                    top: 40,
+                    top: 60,
                     right: 20,
-                    child: RaisedButton(
-                        child: Text('Post an ad'),
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute<void>(
-                            builder: (BuildContext context) {
-                              return CreateAd(
-                                userId: widget.userID,
-                              );
-                            },
-                          ));
-                        })),
+                    child: SizedBox(
+                        height: 60,
+                        width: 100,
+                        child: RaisedButton(
+                            elevation: 2.0,
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(10.0)),
+                            color: Colors.blue,
+                            child: Text('Post Ad',style: TextStyle(color: Colors.white),),
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute<void>(
+                                builder: (BuildContext context) {
+                                  return CreateAd(
+                                    userId: widget.userID,
+                                  );
+                                },
+                              ));
+                            }))),
                 Positioned(
-                    top: MediaQuery.of(context).size.height * .3,
+                    top: MediaQuery.of(context).size.height * .2,
                     left: 0,
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height,
