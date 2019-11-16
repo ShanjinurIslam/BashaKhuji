@@ -8,13 +8,13 @@ class AdRest {
   int count = 0;
 
   void createRecord(Map<String, dynamic> dataobject) async {
-    print('In upload data');
     DocumentReference ref =
         await databaseReference.collection("ad_records").add(dataobject);
     print(ref.documentID);
   }
 
   Future<List<Ad>> getData() async {
+    ads.clear();
     //Map<dynamic, dynamic> map;
     await databaseReference
         .collection("ad_records")

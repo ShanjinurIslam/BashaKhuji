@@ -4,8 +4,8 @@ import 'package:bashakhuji/model/ad_model.dart';
 class AdController {
   AdRest rest = new AdRest();
   Future<List<Ad>> fetchAds() async {
-    List<Ad> workouts = await rest.getData();
-    return workouts;
+    List<Ad> ads = await rest.getData();
+    return ads;
   }
 
   Future<List<Ad>> fetchUserData(String userID) async {

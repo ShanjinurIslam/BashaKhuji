@@ -1,3 +1,4 @@
+import 'package:bashakhuji/components/rent_tile.dart';
 import 'package:bashakhuji/model/ad_model.dart';
 import 'package:bashakhuji/scopedModel/mainmodel.dart';
 import 'package:flutter/cupertino.dart';
@@ -5,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class AllAds extends StatefulWidget {
-  bool isCalled=false;
+  bool isCalled = false;
+  int count = 0;
   @override
   State<StatefulWidget> createState() {
     return AllAdState();
@@ -13,10 +15,6 @@ class AllAds extends StatefulWidget {
 }
 
 class AllAdState extends State<AllAds> {
-  List<Ad> family;
-  List<Ad> bachelor;
-  List<Ad> sublet;
-
   final Map<int, Widget> logoWidgets = const <int, Widget>{
     0: Text('Family'),
     1: Text('Bachelor'),
@@ -25,37 +23,36 @@ class AllAdState extends State<AllAds> {
 
   int sharedValue = 0;
 
-  final Map<int, Widget> icons = const <int, Widget>{
-    0: Center(
-      child: FlutterLogo(
-        colors: Colors.indigo,
-        size: 200.0,
-      ),
-    ),
-    1: Center(
-      child: FlutterLogo(
-        colors: Colors.teal,
-        size: 200.0,
-      ),
-    ),
-    2: Center(
-      child: FlutterLogo(
-        colors: Colors.cyan,
-        size: 200.0,
-      ),
-    ),
-  };
+  static Widget listOfAds(List<Ad> ads) {
+    return new ListView.builder(
+        itemCount: ads.length,
+        itemBuilder: (BuildContext ctxt, int index) =>
+            RentTile(ad: ads[index]));
+  }
 
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<MainModel>(builder: (context, child, model) {
-      if (!widget.isCalled) {
+      if (!widget.isCalled && !model.isAdLoaded) {
         model.generateAds();
-        family = model.family;
-        bachelor = model.bachelor;
-        sublet = model.sublet;
-        model.isAdLoaded = true;
+        widget.isCalled = true;
       }
+
+      Map<int, Widget> map = new Map();
+      map[0] = model.family.length > 0
+          ? listOfAds(model.family)
+          : Center(
+              child: Text('No Family House Rent Available'),
+            );
+      map[1] = model.bachelor.length > 0
+          ? listOfAds(model.bachelor)
+          : Center(
+              child: Text('No Bachelor House Rent Available'),
+            );
+      map[2] = model.sublet.length > 0
+          ? listOfAds(model.sublet)
+          : Center(child: Text('No Bachelor House Rent Available'));
+
       return Scaffold(
         body: !model.isAdLoaded
             ? Center(
@@ -94,21 +91,11 @@ class AllAdState extends State<AllAds> {
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * .7,
                       width: MediaQuery.of(context).size.width,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 32.0,
-                          horizontal: 16.0,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: CupertinoColors.white,
                         ),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 64.0,
-                            horizontal: 16.0,
-                          ),
-                          decoration: BoxDecoration(
-                            color: CupertinoColors.white,
-                          ),
-                          child: icons[sharedValue],
-                        ),
+                        child: map[sharedValue],
                       ),
                     ),
                   )

@@ -114,7 +114,6 @@ class SignInState extends State<SignIn> {
           //_showVerifyEmailSentDialog();
           print('Signed up user: $userId');
         }
-
         if (userId.length > 0 && userId != null && _isLoginForm) {
           UserDetails userDetails =
               new UserDetails(auth: widget.auth, userID: userId);

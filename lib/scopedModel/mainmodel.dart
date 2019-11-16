@@ -16,6 +16,9 @@ class MainModel extends Model {
 
   void generateAds() async {
     ads.clear();
+    family.clear();
+    bachelor.clear();
+    sublet.clear();
     ads = await controller.fetchAds();
     for (int i = 0; i < ads.length; i++) {
       if (ads[i].catagory == 'family') {
@@ -28,8 +31,7 @@ class MainModel extends Model {
         sublet.add(ads[i]);
       }
     }
-
-    //isAdLoaded = true;
+    isAdLoaded = true;
     notifyListeners();
   }
 
