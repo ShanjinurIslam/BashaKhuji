@@ -41,6 +41,7 @@ class MainModel extends Model {
   }
 
   void uploadData(Ad ad) {
+    print('I am here');
     controller.uploadData(ad);
     myAds.add(ad);
     if (ad.catagory == 'family') {

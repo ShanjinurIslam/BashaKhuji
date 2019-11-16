@@ -1,5 +1,5 @@
-import 'package:bashakhuji/model/userDetails.dart';
 import 'package:bashakhuji/scopedModel/mainmodel.dart';
+import 'package:bashakhuji/view/createAd.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
@@ -20,6 +20,7 @@ class MyAdState extends State<MyAds> {
     return ScopedModelDescendant<MainModel>(builder: (context, child, model) {
       if (!widget.isCalled) {
         model.generateMyAds(widget.userID);
+        widget.isCalled = true;
       }
 
       return !model.isMyAdLoaded
@@ -28,10 +29,20 @@ class MyAdState extends State<MyAds> {
               child: CupertinoActivityIndicator(),
             ))
           : Scaffold(
-              body: Stack(
-                children: <Widget>[Text('Loaded')],
-              ),
-            );
+              body: SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
+                  child: RaisedButton(
+                      child: Text('data'),
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute<void>(
+                          builder: (BuildContext context) {
+                            return CreateAd(
+                              userId: widget.userID,
+                            );
+                          },
+                        ));
+                      })));
     });
   }
 }

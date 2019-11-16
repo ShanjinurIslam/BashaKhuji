@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class AllAds extends StatefulWidget {
-  bool isCalled;
+  bool isCalled=false;
   @override
   State<StatefulWidget> createState() {
     return AllAdState();

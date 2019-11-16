@@ -39,6 +39,7 @@ android {
     dependencies {
         // add the Firebase SDK for Google Analytics
         implementation 'com.google.firebase:firebase-analytics:17.2.0'
+        implementation 'com.android.support:multidex:1.0.3'
         // add SDKs for any other desired Firebase products
         // https://firebase.google.com/docs/android/setup#available-libraries
     }
@@ -48,6 +49,7 @@ android {
         applicationId "com.example.bashakhuji"
         minSdkVersion 16
         targetSdkVersion 28
+        multiDexEnabled true
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

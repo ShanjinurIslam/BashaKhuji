@@ -8,6 +8,7 @@ class AdRest {
   int count = 0;
 
   void createRecord(Map<String, dynamic> dataobject) async {
+    print('In upload data');
     DocumentReference ref =
         await databaseReference.collection("ad_records").add(dataobject);
     print(ref.documentID);
@@ -67,6 +68,7 @@ class AdRest {
         .getDocuments()
         .then((QuerySnapshot snapshot) {
       snapshot.documents.forEach((f) {
+        print(f);
         Map<String, dynamic> dataObject = f.data;
         String userID;
         String flatNumber;
@@ -89,6 +91,7 @@ class AdRest {
         numberOfBeds = dataObject["numberOfBeds"];
         numberOfToilets = dataObject["numberOfToilets"];
         phoneNumber = dataObject["phoneNumber"];
+        print(userID);
         Ad ad = new Ad(
             userID: userID,
             flatNumber: flatNumber,

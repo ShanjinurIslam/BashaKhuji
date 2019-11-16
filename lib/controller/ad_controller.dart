@@ -14,6 +14,7 @@ class AdController {
   }
 
   void uploadData(Ad ad) {
+    print('I am uploading data');
     Map<String, dynamic> dataObject = new Map();
     dataObject["userID"] = ad.userID;
     dataObject["flatNumber"] = ad.flatNumber;

@@ -114,14 +114,8 @@ class SignInState extends State<SignIn> {
           //_showVerifyEmailSentDialog();
           print('Signed up user: $userId');
         }
-        setState(() {
-          _isLoading = false;
-        });
 
         if (userId.length > 0 && userId != null && _isLoginForm) {
-          //widget.loginCallback();
-          //go to next screen with userId in argument
-
           UserDetails userDetails =
               new UserDetails(auth: widget.auth, userID: userId);
           Navigator.pushReplacementNamed(context, '/home',
@@ -220,7 +214,10 @@ class SignInState extends State<SignIn> {
                   top: 40,
                   left: 20,
                   child: IconButton(
-                    icon: Icon(Icons.arrow_back,color: Colors.white,),
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                    ),
                     onPressed: () => Navigator.pop(context),
                   ),
                 ),
