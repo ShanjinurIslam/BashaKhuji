@@ -62,7 +62,10 @@ class MyAdState extends State<MyAds> {
                             shape: new RoundedRectangleBorder(
                                 borderRadius: new BorderRadius.circular(10.0)),
                             color: Colors.blue,
-                            child: Text('Post Ad',style: TextStyle(color: Colors.white),),
+                            child: Text(
+                              'Post Ad',
+                              style: TextStyle(color: Colors.white),
+                            ),
                             onPressed: () {
                               Navigator.push(context, MaterialPageRoute<void>(
                                 builder: (BuildContext context) {
@@ -78,7 +81,11 @@ class MyAdState extends State<MyAds> {
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
-                      child: listOfAds(model.myAds),
+                      child: model.myAds.length > 0
+                          ? (model.myAds)
+                          : Center(
+                              child: Text('No Adds posted by you'),
+                            ),
                     )),
               ],
             ));
